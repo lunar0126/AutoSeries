@@ -82,11 +82,16 @@ def run(dataset_dir, code_dir):
 
 
 def _parse_args():
+    # 设置当前目录
     default_starting_kit_dir = _here()
+    # 默认数据集为当前目录+data+15
     default_dataset_dir = join(default_starting_kit_dir, 'data', '15')
+    # 默认的code为当前目录+data+code_submission
     default_code_dir = join(default_starting_kit_dir, 'code_submission')
 
+    # 创建一个解析对象
     parser = argparse.ArgumentParser()
+    # 向该对象中添加你要关注的命令行参数和选项
     parser.add_argument('--dataset_dir', type=str,
                         default=default_dataset_dir,
                         help="Directory storing the dataset, should contain"
@@ -97,6 +102,7 @@ def _parse_args():
                         help="Directory storing the submission code "
                              "`model.py` and other necessary packages.")
 
+    #进行解析
     args = parser.parse_args()
     return args
 
@@ -106,6 +112,7 @@ def main():
     args = _parse_args()
     dataset_dir = args.dataset_dir
     code_dir = args.code_dir
+    
     logging.info("#" * 50)
     logging.info("Begin running local test using")
     logging.info(f"code_dir = {code_dir}")
