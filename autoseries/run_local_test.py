@@ -18,6 +18,8 @@ logging.basicConfig(
 
 
 def _here(*args):
+    #os.path.dirname去掉文件名保存文件目录
+    #os.path.realpath绝对路径
     here = os.path.dirname(os.path.realpath(__file__))
     return os.path.join(here, *args)
 
